@@ -4,5 +4,4 @@ RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_sm
 RUN python src/download_nltk.py
 
-EXPOSE 80
-CMD uvicorn src.app:app --host 0.0.0.0 --port 80
+CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 src.app:app
