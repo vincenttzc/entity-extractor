@@ -11,7 +11,7 @@ class Database:
         cur = con.cursor()
 
         # create table if dont exist
-        cur.execute("DROP TABLE entities")  # remove
+        # cur.execute("DROP TABLE entities")  # remove
         cur.execute("CREATE TABLE entities (url text, entity text, sentence text)")
 
         con.commit()
