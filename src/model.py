@@ -3,6 +3,9 @@ import nltk
 import pickle
 
 
+nltk.download("punkt")
+
+
 class Model:
     def __init__(self):
         # python -m spacy download en_core_web_sm
