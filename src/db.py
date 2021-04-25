@@ -25,6 +25,14 @@ class Database:
         con.commit()
         con.close()
 
+        con = sqlite3.connect(self.db)
+        cur = con.cursor()
+        result = cur.execute("SELECT * FROM entities").fetchall()
+        con.commit()
+        con.close()
+
+        print(result)
+
     def get_entities(self):
         con = sqlite3.connect(self.db)
         cur = con.cursor()
