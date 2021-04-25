@@ -4,6 +4,7 @@ nltk==3.6.2
 spacy==3.0.6
 uvicorn==0.13.4
 fastapi==0.63.0
-gunicorn
-uvloop
-httptools
+omegaconf==2.0.6
+gunicorn==20.1.0
+uvloop==0.15.2
+httptools==0.2.0

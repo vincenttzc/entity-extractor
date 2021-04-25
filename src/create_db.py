@@ -1,5 +1,12 @@
-from src.db import Database
+from omegaconf import OmegaConf
 
-db_file = "test.db"
-db = Database(db_file)
-db.create_table()
+from src.database import Database, SqliteDB
+
+conf = OmegaConf.load("src/config/config.yaml")
+database_file = conf["database_file"]
+database_type = conf["database_type"]
+
+if database_type == "sqlite":
+    database = Database(SqliteDB(database_file))
+
+database.create_table()
