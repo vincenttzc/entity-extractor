@@ -22,7 +22,7 @@ db_file = "test.db"
 datapipeline = DataPipeline(blacklist)
 model = Model()
 db = Database(db_file)
-db.create_table()
+#db.create_table()
 
 
 @app.post("/extract_entities")
