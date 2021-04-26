@@ -1,6 +1,6 @@
 # Entity Extractor
 
-Entity Extractor is a web API service that extracts the entities and the accompanying sentence from an URL.
+Entity Extractor is a web API service that scrapes the text body from an URL, then extracts entities and the accompanying sentences.
 
 Click on the Google Cloud button below to deploy this container on a GCP account via Google Cloud Run.
 
@@ -54,13 +54,13 @@ When run locally, web server URL is `http://127.0.0.1:8080/`.
 | ------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | /extract_entities   | POST         | Extract the entities and sentences from URL provided then insert in database. Returns unique entities extracted from URL. | {"input_link": "https://en.wikipedia.org/wiki/Betta" } | {"entities": ["Betta", "United Nations"]}                                     |
 | /query_all_entities | GET          | Query all unique entities in database                                                                                     | NA                                                     | {"entities": ["Betta", "United Nations"]}                                     |
-| /query_sentences    | POST         | Query all sentences containing entity specified from database                                                             | {"entity": "Betta"}                                    | {"sentences": ["sentence 1 containing Betta", "sentence 2 containing Betta"]} |
+| /query_sentences    | POST         | Query all sentences containing specified entity from database                                                             | {"entity": "Betta"}                                    | {"sentences": ["sentence 1 containing Betta", "sentence 2 containing Betta"]} |
 
 Refer to [openapi.json](openapi.json) for more detailed information of the API
 
 ## Config
 
-Environment variables can be added to the `.env` files in the config folder. This allows different environment variables to be used when running the Docker container for different environment.
+Environment variables can be added to the `.env` files in the config folder. This allows different environment variables to be used when running the Docker container for different environments.
 
 Application config can be configured in [config/config.yaml](config/config.yaml)
 
