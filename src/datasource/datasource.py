@@ -16,12 +16,20 @@ class DataSource:
     """
 
     def __init__(self, source_type: SourceType):
-        """[summary]"""
+        """Constructor method"""
         if isinstance(source_type, SourceType):
             self.source_type = source_type
         else:
-            raise ValueError("logger needs to inherit from " + SourceType.__name__)
+            raise ValueError("source_type needs to inherit from " + SourceType.__name__)
 
-    def extract_data(self, input_link):
+    def extract_data(self, input_link: str) -> str:
+        """Extract text data from input_link
+
+        Args:
+            input_link (str): url or path to file
+
+        Returns:
+            str: text extracted from input_link
+        """
 
         return self.source_type.extract_data(input_link)
