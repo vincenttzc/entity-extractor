@@ -9,7 +9,7 @@ from src.model import Model
 
 app = FastAPI()
 
-conf = OmegaConf.load("src/config/config.yaml")
+conf = OmegaConf.load("config/config.yaml")
 database_file = conf["database_file"]
 datasource_type = conf["datasource_type"]
 text_format = conf["text_format"]
