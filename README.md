@@ -55,3 +55,5 @@ When run locally, web server URL is `http://127.0.0.1:8080/`.
 | /extract_entities   | POST         | Extract the entities and sentences from URL provided then insert in database. Returns unique entities extracted from URL. | {"input_link": "https://en.wikipedia.org/wiki/Betta" } | {"entities": ["Betta", "United Nations"]}                                     |
 | /query_all_entities | GET          | Query all unique entities in database                                                                                     | NA                                                     | {"entities": ["Betta", "United Nations"]}                                     |
 | /query_sentences    | POST         | Query all sentences containing entity specified from database                                                             | {"entity": "Betta"}                                    | {"sentences": ["sentence 1 containing Betta", "sentence 2 containing Betta"]} |
+
+Refer to [openapi.json](openapi.json) for more detailed information of the API
