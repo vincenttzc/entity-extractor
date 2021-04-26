@@ -1,5 +1,3 @@
-import sqlite3
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 from omegaconf import OmegaConf
@@ -48,12 +46,7 @@ def extract_entities(item: InputItem):
     results_with_input_link = [[input_link] + row for row in results]
     database.insert_into_db(results_with_input_link)
 
-    con = sqlite3.connect(database_file)
-    cur = con.cursor()
-    entities = cur.execute("SELECT entity FROM entities").fetchall()
-    con.commit()
-    con.close()
-    entities = [row[0] for row in entities]
+    entities = list(set([row[0] for row in results]))
     return {"entities": entities}
 
 
