@@ -19,7 +19,9 @@ class Database:
         if isinstance(database_type, DatabaseType):
             self.database_type = database_type
         else:
-            raise ValueError("logger needs to inherit from " + DatabaseType.__name__)
+            raise ValueError(
+                "database_type needs to inherit from " + DatabaseType.__name__
+            )
 
     def create_table(self):
         """Create table in database"""

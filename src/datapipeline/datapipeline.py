@@ -16,7 +16,7 @@ class DataPipeline:
         if isinstance(text_format, TextFormat):
             self.text_format = text_format
         else:
-            raise ValueError("logger needs to inherit from " + TextFormat.__name__)
+            raise ValueError("text_format needs to inherit from " + TextFormat.__name__)
 
     def process_data(self, input_text: str) -> str:
         """Clean and process input_text given the text_format
