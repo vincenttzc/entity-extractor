@@ -3,7 +3,7 @@ import sqlite3
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from app import app
+from main import app
 
 
 client = TestClient(app)
