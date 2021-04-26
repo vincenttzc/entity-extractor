@@ -1,0 +1,7 @@
+datasource_type: web_source
+text_format: html
+database_type: sqlite
+database_file: mydatabase.db
+html_params:
+  # HTML tags to exclude when extracting text body
+  blacklist: ["style", "script", "head", "title", "meta", "[document]", "aside"]
