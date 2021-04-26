@@ -1,6 +1,0 @@
-{
-  "name": "entity-extractor",
-  "options": {
-    "memory": "1GiB"
-  }
-}
