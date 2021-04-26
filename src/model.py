@@ -1,8 +1,7 @@
+from typing import List
+
 import spacy
 import nltk
-import pickle
-
-from typing import List
 
 
 nltk.download("punkt")
@@ -36,13 +35,14 @@ class Model:
         return result
 
     def _predict_single(self, text: str) -> List[List[str]]:
-        """Predicts entities for single sentence
+        """Private methos to predicts entities for single sentence
 
         Args:
             text (str): single sentence
 
         Returns:
-            List[List[str]]: entity and sentence
+            List[List[str]]: List of List containing entity and sentence.
+            Sentence will be repeated if it contains multiple entities
         """
         result_single = []
         doc = self.model(text)
@@ -54,7 +54,7 @@ class Model:
         return result_single
 
     def _split_to_sentence(self, text_body: str) -> List[str]:
-        """Split text body to sentences
+        """Private method to split text body to sentences
 
         Args:
             text_body (str): text body
@@ -64,15 +64,3 @@ class Model:
         """
         text_list = nltk.tokenize.sent_tokenize(text_body)
         return text_list
-
-
-if __name__ == "__main__":
-    model = Model()
-    with open("test_text.txt", "r", encoding="utf-8") as f:
-        data = f.read()
-    result = model.predict(data)
-
-    with open("test_result.txt", "wb") as file:
-        pickle.dump(result, file)
-
-    print(result[50])

@@ -25,11 +25,11 @@ class SqliteDB(DatabaseType):
         con.commit()
         con.close()
 
-    def insert_into_db(self, data: List[List]):
+    def insert_into_db(self, data: List[List[str]]):
         """Insert data into database. Elements of sublist need to match order in table
 
         Args:
-            data (List[List]): Data to insert
+            data (List[List[str]]): Data to insert
         """
         con = sqlite3.connect(self.db)
         cur = con.cursor()

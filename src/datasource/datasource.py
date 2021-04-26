@@ -1,6 +1,3 @@
-import requests
-from abc import ABC, abstractmethod
-
 from src.datasource.sourcetype import SourceType
 
 
