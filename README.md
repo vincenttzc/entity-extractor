@@ -41,7 +41,7 @@ docker build -t entity-extractor .
 3. Run docker container
 
 ```
-docker run --env-file env_config/.env.dev -p 8080:8080 entity-extractor
+docker run --env-file config/.env.dev -p 8080:8080 entity-extractor
 ```
 
 ## API Endpoints
@@ -57,3 +57,34 @@ When run locally, web server URL is `http://127.0.0.1:8080/`.
 | /query_sentences    | POST         | Query all sentences containing entity specified from database                                                             | {"entity": "Betta"}                                    | {"sentences": ["sentence 1 containing Betta", "sentence 2 containing Betta"]} |
 
 Refer to [openapi.json](openapi.json) for more detailed information of the API
+
+## Config
+
+Environment variables can be added to the `.env` files in the config folder. This allows different environment variables to be used when running the Docker container for different environment.
+
+Application config can be configured in [config/config.yaml](config/config.yaml)
+
+## Extension
+
+To change the database, datasource type (eg. url or object store) and text format (eg. HTML or CSV):
+
+1. Create a new class in the respective database/ datasource/ datapipeline folder which inherits from the base class - `DatabaseType`, `SourceType` or `TextFormat`
+1. Import new class in `__init__.py`
+1. Add new class in `main.py`, add condition to make it configurable through `config.yaml`. Add new class as input to `Database`, `DataSource` or `DataPipeline`
+1. Modify `config.yaml` to use new class
+
+## Testing
+
+To test the files:
+
+1. Clone repo
+
+```
+git clone https://github.com/vincenttzc/entity-extractor.git
+```
+
+2. At root directory, execute:
+
+```
+pytest
+```
